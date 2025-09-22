@@ -8,7 +8,7 @@ import {FundMe} from "../../src/FundMe.sol";
 
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
-import {FundFundMe, WithdrawFundMe} from "../../script/interaction.s.sol";
+import {FundFundMe, WithdrawFundMe} from "../../script/Interaction.s.sol";
 
 contract InteractionsTest is Test {
     FundMe fundMe;
