@@ -28,6 +28,7 @@ contract fundMeTest is Test {
         console.log(fundMe.MINIMUM_USD());
         assertEq(fundMe.MINIMUM_USD(), 5e18);
     }
+
     function testOwner() public view {
         console.log(fundMe.getOwner());
         console.log(msg.sender);
@@ -86,10 +87,7 @@ contract fundMeTest is Test {
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerbalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerbalance, endingOwnerBalance);
     }
 
     function testWithdrawFromMultipleFunders() public funded {
@@ -110,10 +108,7 @@ contract fundMeTest is Test {
         vm.stopPrank();
         // assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerbalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerbalance == fundMe.getOwner().balance);
     }
 
     function testWithdrawFromMultipleFundersCheaper() public funded {
@@ -134,9 +129,6 @@ contract fundMeTest is Test {
         vm.stopPrank();
         // assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerbalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerbalance == fundMe.getOwner().balance);
     }
 }
